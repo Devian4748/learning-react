@@ -3,59 +3,58 @@ import { createRoot } from 'react-dom/client';
 
 const root = createRoot(document.querySelector('#root'));
 
-// Navbar
+// Payment methods dropdown
 //
-// function getNavbar(user) {
-//   return <div>Logged in as {user.name}. Log out</div>;
-// }
-// root.render(getNavbar({ name: 'Sam', age: 34 }));
-
-// Notifications
-//
-// function getNotifications(notifications) {
-//   return <p>You have {notifications.length} new notifications</p>;
-// }
-
-// const notifications = [
-//   {
-//     id: 1,
-//     text: 'Your order has been delivered',
-//   },
-//   {
-//     id: 2,
-//     text: 'Your coupon code has expired',
-//   },
-// ];
-
-// const element = getNotifications(notifications);
-// root.render(element);
-
-// Navbar Ⅱ
-//
-// function getNavbar(user) {
+// function getPaymentMethods() {
 //   return (
-//     <div>Logged in as {`${user.firstName} ${user.lastName}`}. Log out</div>
+//     <select className='payment-methods'>
+//       <option className='payment-method'>Card</option>
+//       <option className='payment-method'>Paypal</option>
+//       <option className='payment-method'>Cash on delivery</option>
+//     </select>
 //   );
 // }
 
-// const element = getNavbar({
-//   firstName: 'Sam',
-//   lastName: 'Dung',
-//   age: 27,
-// });
-// root.render(element);
+// root.render(getPaymentMethods());
 
-// Dynamic class
+// Dropdown menu
 //
-// function getPaymentButton(user) {
-//   const btnClasses = user.is_loggedin ? 'clickable' : 'disabled';
-//   return <button className={btnClasses}>Pay</button>;
+// function getDropdownMenu() {
+//   return (
+//     <ul id='dropdown-menu' class='dropdown'>
+//       <li>Profile</li>
+//       <li>Orders</li>
+//       <li class='separator'></li>
+//       <li>Logout</li>
+//     </ul>
+//   );
 // }
-// root.render(getPaymentButton({ id: 1, is_loggedin: true }));
+// root.render(getDropdownMenu());
 
-// Payment methdos
+// User Avatar
 //
-function getPaymentMethod(name) {
-  return <li className={`payment-method option-${name}`}>{name}</li>;
+// function getUserAvatar(path) {
+//   return <img src={path} alt='user avatar' />;
+// }
+// root.render(
+//   getUserAvatar(
+//     'https://res.cloudinary.com/dbfn5lnvx/image/upload/v1576923026/react-tutorial/misc/user.png'
+//   )
+// );
+
+// Footer
+//
+function getFooter() {
+  return (
+    <>
+      <h3>Your online supermarket</h3>
+      <ul>
+        <li>Contact</li>
+        <li>Press</li>
+        <li>About</li>
+      </ul>
+      <p>All rights reserved &copy;</p>
+    </>
+  );
 }
-root.render(getPaymentMethod('paypal'));
+root.render(getFooter());
