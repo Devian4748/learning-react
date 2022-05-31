@@ -1,48 +1,61 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import Button from './Button';
-import Hero from './Hero';
-import Link from './Link';
 
 const root = createRoot(document.querySelector('#root'));
 
-// Hero Component
+// Shopping Cart
 //
-// const Hero = () => {
-//   return (
-//     <>
-//       <h1>Welcome to our supermarket</h1>
-//       <p>Start shopping</p>
-//     </>
-//   );
-// };
-// root.render(<Hero />);
+// function ShoppingCart(props) {
+//   return <div>{props.count} items in your cart</div>;
+// }
+// root.render(<ShoppingCart count='5' />);
 
-// Navbar Component
+// More props
 //
-// function Navbar() {
+// function Navbar(props) {
 //   return (
 //     <>
-//       <h3>Supermarket</h3>
-//       <p>Start shopping</p>
+//       <div>Welcome {`${props.user.first_name} ${props.user.last_name}`}</div>
+//       <p>You've got {props.notifications.length} notifications</p>
 //     </>
 //   );
 // }
-// root.render(React.createElement(Navbar, null));
 
-// One Component per file
-//
-// root.render(<Hero />);
+// const notificatinos = [
+//   { id: 1, text: 'Order delivered' },
+//   { id: 2, text: 'Order received' },
+// ];
 
-// Mutiple Components
+// const user = {
+//   first_name: 'Sam',
+//   last_name: 'Wolf',
+// };
+// root.render(<Navbar notifications={notificatinos} user={user} />);
+
+// Button Ⅰ
 //
-function App() {
-  return (
-    <>
-      <Button />
-      <Button />
-      <Link />
-    </>
-  );
-}
-root.render(<App />);
+// function Button(props) {
+//   return <button className={`btm-${props.size ?? 'medium'}`}></button>;
+// }
+
+// root.render(
+//   <>
+//     <Button size='small' />
+//     <Button size='large' />
+//     <Button />
+//   </>
+// );
+
+// Button Ⅱ
+//
+// function Button(props) {
+//   return <button>{props.children}</button>;
+// }
+// root.render(<Button>Login</Button>);
+
+// Destructuring props
+//
+// function Button({ className, children }) {
+//   return <button className={className}>{children}</button>;
+// }
+// root.render(<Button className='primary'>Login</Button>);
