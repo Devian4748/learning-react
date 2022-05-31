@@ -1,24 +1,43 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 
-// ReactDOM Ⅰ
+const root = createRoot(document.querySelector('#root'));
+
+// Basic JSX
 //
-// const element = React.createElement('p', {}, 'Hello World');
-// const root = createRoot(document.querySelector('#root'));
+// const element = <p>My first JSX</p>;
 // root.render(element);
 
-// ReactDOM Ⅱ
+// Attributes Ⅰ
 //
-// const element = React.createElement('h1', null, 'Online Supermarket');
-// const root = createRoot(document.querySelector('#root'));
-// root.render(element);
-
-// ReactDOM Ⅲ
-//
-// const element = React.createElement(
-//   'h1',
-//   { className: 'title' },
-//   'Online Supermarket'
+// const element = (
+//   <p className='selected' id='promo'>
+//     Hello World
+//   </p>
 // );
-// const root = createRoot(document.querySelector('#root'));
 // root.render(element);
+
+// Supermarket tagline
+//
+// function getTagline() {
+//   return <h2 className='subtitle'>Grocery shopping simplified.</h2>;
+// }
+// root.render(getTagline());
+
+// Login status
+//
+/**
+ *
+ * @param {boolean} is_loggedin
+ * @returns
+ */
+// function getLoginStatus(is_loggedin) {
+//   let element = <p>You are logged in</p>;
+//   if (!is_loggedin) {
+//     element = <a href='/login'>Login</a>;
+//   }
+
+//   return element;
+// }
+// console.log(getLoginStatus(true));
+// console.log(getLoginStatus(false));
