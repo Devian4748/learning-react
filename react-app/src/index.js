@@ -1,21 +1,24 @@
 import React from 'react';
+import { createRoot } from 'react-dom/client';
 
-function getReactVersion() {
-  return React.version;
-}
+// ReactDOM Ⅰ
+//
+// const element = React.createElement('p', {}, 'Hello World');
+// const root = createRoot(document.querySelector('#root'));
+// root.render(element);
 
-function createDivElement() {
-  return React.createElement('div', null, 'Hello World!');
-}
+// ReactDOM Ⅱ
+//
+// const element = React.createElement('h1', null, 'Online Supermarket');
+// const root = createRoot(document.querySelector('#root'));
+// root.render(element);
 
-function createTitle() {
-  return React.createElement(
-    'h1',
-    { className: 'hero-title' },
-    'Welcome to our supermarket'
-  );
-}
-
-console.log(getReactVersion());
-console.log(createDivElement());
-console.log(createTitle());
+// ReactDOM Ⅲ
+//
+// const element = React.createElement(
+//   'h1',
+//   { className: 'title' },
+//   'Online Supermarket'
+// );
+// const root = createRoot(document.querySelector('#root'));
+// root.render(element);
