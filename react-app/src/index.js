@@ -3,41 +3,59 @@ import { createRoot } from 'react-dom/client';
 
 const root = createRoot(document.querySelector('#root'));
 
-// Basic JSX
+// Navbar
 //
-// const element = <p>My first JSX</p>;
+// function getNavbar(user) {
+//   return <div>Logged in as {user.name}. Log out</div>;
+// }
+// root.render(getNavbar({ name: 'Sam', age: 34 }));
+
+// Notifications
+//
+// function getNotifications(notifications) {
+//   return <p>You have {notifications.length} new notifications</p>;
+// }
+
+// const notifications = [
+//   {
+//     id: 1,
+//     text: 'Your order has been delivered',
+//   },
+//   {
+//     id: 2,
+//     text: 'Your coupon code has expired',
+//   },
+// ];
+
+// const element = getNotifications(notifications);
 // root.render(element);
 
-// Attributes Ⅰ
+// Navbar Ⅱ
 //
-// const element = (
-//   <p className='selected' id='promo'>
-//     Hello World
-//   </p>
-// );
+// function getNavbar(user) {
+//   return (
+//     <div>Logged in as {`${user.firstName} ${user.lastName}`}. Log out</div>
+//   );
+// }
+
+// const element = getNavbar({
+//   firstName: 'Sam',
+//   lastName: 'Dung',
+//   age: 27,
+// });
 // root.render(element);
 
-// Supermarket tagline
+// Dynamic class
 //
-// function getTagline() {
-//   return <h2 className='subtitle'>Grocery shopping simplified.</h2>;
+// function getPaymentButton(user) {
+//   const btnClasses = user.is_loggedin ? 'clickable' : 'disabled';
+//   return <button className={btnClasses}>Pay</button>;
 // }
-// root.render(getTagline());
+// root.render(getPaymentButton({ id: 1, is_loggedin: true }));
 
-// Login status
+// Payment methdos
 //
-/**
- *
- * @param {boolean} is_loggedin
- * @returns
- */
-// function getLoginStatus(is_loggedin) {
-//   let element = <p>You are logged in</p>;
-//   if (!is_loggedin) {
-//     element = <a href='/login'>Login</a>;
-//   }
-
-//   return element;
-// }
-// console.log(getLoginStatus(true));
-// console.log(getLoginStatus(false));
+function getPaymentMethod(name) {
+  return <li className={`payment-method option-${name}`}>{name}</li>;
+}
+root.render(getPaymentMethod('paypal'));
