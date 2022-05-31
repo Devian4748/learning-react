@@ -1,60 +1,48 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
+import Button from './Button';
+import Hero from './Hero';
+import Link from './Link';
 
 const root = createRoot(document.querySelector('#root'));
 
-// Payment methods dropdown
+// Hero Component
 //
-// function getPaymentMethods() {
+// const Hero = () => {
 //   return (
-//     <select className='payment-methods'>
-//       <option className='payment-method'>Card</option>
-//       <option className='payment-method'>Paypal</option>
-//       <option className='payment-method'>Cash on delivery</option>
-//     </select>
+//     <>
+//       <h1>Welcome to our supermarket</h1>
+//       <p>Start shopping</p>
+//     </>
+//   );
+// };
+// root.render(<Hero />);
+
+// Navbar Component
+//
+// function Navbar() {
+//   return (
+//     <>
+//       <h3>Supermarket</h3>
+//       <p>Start shopping</p>
+//     </>
 //   );
 // }
+// root.render(React.createElement(Navbar, null));
 
-// root.render(getPaymentMethods());
-
-// Dropdown menu
+// One Component per file
 //
-// function getDropdownMenu() {
-//   return (
-//     <ul id='dropdown-menu' class='dropdown'>
-//       <li>Profile</li>
-//       <li>Orders</li>
-//       <li class='separator'></li>
-//       <li>Logout</li>
-//     </ul>
-//   );
-// }
-// root.render(getDropdownMenu());
+// root.render(<Hero />);
 
-// User Avatar
+// Mutiple Components
 //
-// function getUserAvatar(path) {
-//   return <img src={path} alt='user avatar' />;
-// }
-// root.render(
-//   getUserAvatar(
-//     'https://res.cloudinary.com/dbfn5lnvx/image/upload/v1576923026/react-tutorial/misc/user.png'
-//   )
-// );
-
-// Footer
-//
-function getFooter() {
+function App() {
   return (
     <>
-      <h3>Your online supermarket</h3>
-      <ul>
-        <li>Contact</li>
-        <li>Press</li>
-        <li>About</li>
-      </ul>
-      <p>All rights reserved &copy;</p>
+      <Button />
+      <Button />
+      <Link />
     </>
   );
 }
-root.render(getFooter());
+root.render(<App />);
