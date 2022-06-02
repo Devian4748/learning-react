@@ -1,25 +1,67 @@
-import React from 'react';
 import { createRoot } from 'react-dom/client';
+import clsx from 'clsx';
+import classes from './theme.module.css';
+import Button from './Button';
 
 const root = createRoot(document.querySelector('#root'));
 
-// Impure to Pure
-const user = {
-  first_name: 'Sam',
-  last_name: 'Doe',
-  age: 26,
-};
+// Conditional Rendering
+//
+// const user = {
+//   name: 'Same Blue',
+//   id: 1,
+// };
 
-const Navbar = props => {
-  const { user } = props;
-  const full_name = `${user.first_name} ${user.last_name}`;
-  const age = user.age + 1;
-  return (
-    <div>
-      Hello {full_name}.<br />
-      You are now {age} years old.
-    </div>
-  );
-};
+// const WelcomeUser = props => {
+//   if (!props.user) return null;
+//   return <div>Welcome {props.user.name}</div>;
+// };
 
-root.render(<Navbar user={user} />);
+// root.render(
+//   <>
+//     <WelcomeUser user={user} />
+//     <WelcomeUser />
+//   </>
+// );
+
+// Dark theme Ⅰ
+//
+// const Navbar = props => {
+//   const { theme } = props;
+//   return <h1 className={classes[theme]}>Online supermarket</h1>;
+// };
+
+// root.render(
+//   <>
+//     <Navbar theme='dark' />
+//     <Navbar theme='light' />
+//   </>
+// );
+
+// Dark theme Ⅱ
+//
+// const Navbar = props => {
+//   const { theme } = props;
+//   const themeClass = `${classes.navbar} ${classes[clsx(theme)]}`;
+//   return <h1 className={themeClass}>Online supermarket</h1>;
+// };
+
+// root.render(
+//   <>
+//     <Navbar theme='dark' />
+//     <Navbar theme='light' />
+//   </>
+// );
+
+// UI Kit > Button
+//
+// root.render(
+//   <>
+//     <Button tabIndex={1} disabled>
+//       Login
+//     </Button>
+//     <Button tabIndex={2} disabled={false}>
+//       Login
+//     </Button>
+//   </>
+// );
