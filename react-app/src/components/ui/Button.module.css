@@ -1,0 +1,21 @@
+.ui-button {
+  background-color: var(--primary);
+  color: #fff;
+  border: 0;
+  padding: 1.5rem 2rem;
+  min-width: 150px;
+  font-size: var(--normal);
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 200ms ease-out;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.ui-button:hover {
+  opacity: 0.8;
+}
+
+.ui-button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}

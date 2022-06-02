@@ -1,0 +1,23 @@
+* {
+  margin: 1rem;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  line-height: 1;
+  color: #333;
+}
+
+:root {
+  --primary: #4caf50;
+  --secondary: #ffc107;
+  --light-gray: #dadce0;
+  --big: 4.5rem;
+  --normal: 2.5rem;
+  --small: 1.5rem;
+}

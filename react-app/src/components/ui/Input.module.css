@@ -1,0 +1,6 @@
+.ui-textfield {
+  padding: 1.2rem 1rem;
+  border-radius: 3px;
+  border: 1px solid var(--light-gray);
+  font-size: var(--normal);
+}
