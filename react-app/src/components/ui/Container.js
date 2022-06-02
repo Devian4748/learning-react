@@ -1,8 +1,14 @@
+import { MakeClassNames } from '../../utils';
 import classes from './Container.module.css';
 
 const Container = props => {
-  const { children } = props;
-  return <div className={classes['ui-container']}>{children}</div>;
+  const { children, className, ...rest } = props;
+  const classNames = MakeClassNames(classes, `container ${className}`);
+  return (
+    <div className={classNames} {...rest}>
+      {children}
+    </div>
+  );
 };
 
 export default Container;

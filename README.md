@@ -33,7 +33,7 @@ Create the following Components such that we have a functioning basic UI Kit:
 - It should also accept the placeholder and name attributes.
 - It should set the class to ui-textfield
 
-## Recap
+### Recap
 
 There are some limitations to this kind of UI Kit, for example:
 
@@ -41,3 +41,8 @@ There are some limitations to this kind of UI Kit, for example:
 - What about other attributes that we didn't think about?
 - What about the huge amount of code having to duplicate the props into attributes?
 - How do we create several types of Buttons that differ in terms of design? For example a Primary one and a Secondary one?
+
+## Imporved UI Kit
+
+- All Components are customizable from the outside (they accept any attribute).
+- All Components will keep their default classNames (for example ui-container for the Container Component) however you should still be able to add a className on the Component which will be added next to the default className.

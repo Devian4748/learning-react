@@ -5,20 +5,19 @@ import Link from './components/ui/Link';
 
 const App = () => {
   return (
-    <>
-      <Link href='https://react-tutorial.app'>Shop Online</Link>
-      <Button type='button' disabled={false}>
+    <Container className='main'>
+      <Link className='landing' href='https://react-tutorial.app'>
+        Shop Online
+      </Link>
+      <Button type='button' disabled={false} className='login-btn'>
         Enabled Button
       </Button>
       <Button type='button' disabled={true}>
         Disabled Button
       </Button>
-      <Container>
-        <p>Content</p>
-      </Container>
       <Input placeholder='ID' name='id' />
       <Input type='email' placeholder='E-mail' name='email' />
-    </>
+    </Container>
   );
 };
 

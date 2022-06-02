@@ -1,10 +1,12 @@
+import { MakeClassNames } from '../../utils';
 import classes from './Link.module.css';
 
 const Link = props => {
-  const { children, href } = props;
+  const { children, className = '', ...rest } = props;
+  const classNames = MakeClassNames(classes, `ui-link ${className}`);
 
   return (
-    <a className={classes['ui-link']} href={href}>
+    <a className={classNames} {...rest}>
       {children}
     </a>
   );

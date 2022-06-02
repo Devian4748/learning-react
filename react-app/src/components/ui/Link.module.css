@@ -3,3 +3,7 @@
   text-decoration: none;
   color: var(--primary);
 }
+
+.landing {
+  margin: 20px;
+}
