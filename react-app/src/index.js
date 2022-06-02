@@ -1,43 +1,65 @@
 import { createRoot } from 'react-dom/client';
 import { useState } from 'react'; // Import useState
+
 const root = createRoot(document.querySelector('#root'));
 
-// Click to log
+// Change event
 //
-// function App() {
-//   const handleLogClick = () => {
-//     console.log('Hello World');
-//   };
-//   return <button onClick={handleLogClick}>Button</button>;
-// }
+// const Navbar = () => {
+//   return (
+//     <select
+//       className='countries'
+//       onChange={() => console.log('Country Changed')}
+//     >
+//       <option>Netherlands</option>
+//       <option>Belgium</option>
+//       <option>France</option>
+//     </select>
+//   );
+// };
+// root.render(<Navbar />);
 
-// root.render(<App />);
+// Name event handler
+//
+// function Counter() {
+//   const handleIncrementClick = () => {
+//     console.log('Button clicked');
+//   };
+
+//   return <button onClick={handleIncrementClick}>Add 1</button>;
+// }
+// root.render(<Counter />);
 
 // Counter
 //
-// const Counter = () => {
+// function Counter() {
 //   const [times, setTimes] = useState(0);
+//   const handleIncrementClick = () => {
+//     setTimes(times + 1);
+//   };
 //   return (
 //     <>
-//       <button onClick={() => setTimes(times + 1)}>Add one</button>
 //       <h2>{times} times clicked</h2>
+//       <button onClick={handleIncrementClick}>Add 1</button>
 //     </>
 //   );
-// };
-
+// }
 // root.render(<Counter />);
 
 // Countdown
 //
-// function Countdown() {
-//   const [times, setTimes] = useState(10);
+function Countdown() {
+  const [count, setCount] = useState(10);
 
-//   return (
-//     <>
-//       <h2>{times} times remaining</h2>
-//       <button onClick={() => setTimes(times - 1)}>Count Down</button>
-//     </>
-//   );
-// }
+  const handleDecrementClick = () => {
+    setCount(count - 1);
+  };
 
-// root.render(<Countdown />);
+  return (
+    <>
+      <h2>{count} times remaining</h2>
+      <button onClick={handleDecrementClick}>Count Down</button>
+    </>
+  );
+}
+root.render(<Countdown />);
