@@ -46,3 +46,26 @@ There are some limitations to this kind of UI Kit, for example:
 
 - All Components are customizable from the outside (they accept any attribute).
 - All Components will keep their default classNames (for example ui-container for the Container Component) however you should still be able to add a className on the Component which will be added next to the default className.
+
+### Create Online Store
+
+- The goal is to create online store
+
+#### App component
+
+- Start by rendering the Please Login h2 and the Login button
+- When the user clicks on the Login button, then you should render the StoreFront component.
+- When user is logged in, you should render the StoreFront Component as well as the logout button.
+
+#### StoreFront component
+
+- we have hardcoded 2 products in the products array.
+- In StoreFront, render 2 empty <Product /> Components.
+- Each Product component should receive only one prop called details which contains one of the hardcoded product details. Give the first <Product /> the first index of the array, and the second <Product /> the 2nd index of the array.
+
+#### Product component
+
+- Render the product's image, title & description.
+- When the user clicks on + or - it should increment a counter which keeps track of how many items the user wants to order.
+- Do not allow the counter to go below 0 (you cannot order -1 items).
+- When the counter is 0, disable the - button and hide the counter. So the counter will only show up when it's at 1 or above, and disappear if it's 0.

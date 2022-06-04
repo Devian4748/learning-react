@@ -1,23 +1,36 @@
+import { useState } from 'react';
+import StoreFront from './components/StoreFront/StoreFront';
 import Button from './components/ui/Button';
-import Container from './components/ui/Container';
-import Input from './components/ui/Input';
-import Link from './components/ui/Link';
 
 const App = () => {
+  const [loggedin, setLoggedin] = useState(false);
+
+  const handleLoginClick = () => {
+    setLoggedin(!loggedin);
+  };
+
+  if (!loggedin) {
+    return (
+      <>
+        <h2>Please Login</h2>
+        <Button
+          type='button'
+          className='btn-primary'
+          onClick={handleLoginClick}
+        >
+          Login
+        </Button>
+      </>
+    );
+  }
+
   return (
-    <Container className='main'>
-      <Link className='landing' href='https://react-tutorial.app'>
-        Shop Online
-      </Link>
-      <Button type='button' disabled={false} className='login-btn'>
-        Enabled Button
+    <>
+      <StoreFront />
+      <Button className='btn-outline' onClick={handleLoginClick}>
+        Logout
       </Button>
-      <Button type='button' disabled={true}>
-        Disabled Button
-      </Button>
-      <Input placeholder='ID' name='id' />
-      <Input type='email' placeholder='E-mail' name='email' />
-    </Container>
+    </>
   );
 };
 
