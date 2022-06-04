@@ -3,148 +3,78 @@ import { useState } from 'react'; // Import useState
 
 const root = createRoot(document.querySelector('#root'));
 
-// Proper Countdown
+// Amdin Permissions
 //
-// function Countdown() {
-//   const [times, setTimes] = useState(5);
-
-//   const handleDecrementClick = () => {
-//     if (times > 0) {
-//       setTimes(times - 1);
-//     }
-//   };
-
-//   const isDisabledBtn = times <= 0;
-
-//   return (
+// const Admin = ({ userType }) => {
+//   const adminContent = (
 //     <>
-//       <h2>{times} times remaining</h2>
-//       <button disabled={isDisabledBtn} onClick={handleDecrementClick}>
-//         Countdown
-//       </button>
+//       <h1>Welcome Admin</h1>
+//       <p>The Admin portal allows you to manage all your items</p>
 //     </>
 //   );
-// }
-// root.render(<Countdown />);
 
-// Resetting Clock
-//
-// function Clock() {
-//   const [seconds, setSeconds] = useState(0);
-
-//   const handleIncrementClick = () => {
-//     if (seconds < 59) {
-//       setSeconds(seconds + 1);
-//     } else {
-//       setSeconds(0);
-//     }
+//   const content = {
+//     admin: adminContent,
+//     client: <NotPermission />,
 //   };
 
+//   return content[userType];
+// };
+
+// const NotPermission = () => {
 //   return (
 //     <>
-//       <h1>{seconds} seconds</h1>
-//       <button onClick={handleIncrementClick}>Add 1</button>
+//       <h1>Not allowed</h1>
+//       <p>
+//         You do not have permission to access this page. Please contact your
+//         account manager.
+//       </p>
 //     </>
 //   );
-// }
+// };
 
-// root.render(<Clock />);
+// root.render(
+//   <>
+//     <Admin userType='client' /> <Admin userType='admin' />{' '}
+//   </>
+// );
 
-// Counter with modes
+// Dashboard
 //
-// function App() {
-//   const [mode, setMode] = useState('Increment');
-
+// function Dashboard({ loggedin }) {
 //   return (
-//     <>
-//       <Mode mode={mode} onChangeMode={setMode} />
-//       <Counter mode={mode} />
-//     </>
+//     <div className='container'>
+//       {loggedin ? <h1>Welcome Back</h1> : <h1>Welcome</h1>}
+//     </div>
 //   );
 // }
+// root.render(
+//   <>
+//     <Dashboard loggedin={true} />
+//     <Dashboard loggedin={false} />
+//   </>
+// );
 
-// function Mode({ mode, onChangeMode }) {
-//   const handleModeChange = ({ target: { value } }) => {
-//     onChangeMode(value);
-//   };
-
-//   return (
-//     <select onChange={handleModeChange} value={mode}>
-//       <option>Increment</option>
-//       <option>Decrement</option>
-//     </select>
-//   );
-// }
-// function Counter({ mode }) {
-//   const [times, setTimes] = useState(0);
-
-//   const handleTimesClick = () => {
-//     if (mode === 'Increment') {
-//       setTimes(times + 1);
-//     } else if (mode === 'Decrement') {
-//       setTimes(times - 1);
-//     }
-//   };
-
-//   return (
-//     <>
-//       <h2>{mode}ing mode</h2>
-//       <h3>{times} times</h3>
-//       <button onClick={handleTimesClick}>{mode}</button>
-//     </>
-//   );
-// }
-// root.render(<App />);
-
-// Configurable Counter
+// Navbar notifications
 //
-function App() {
-  const [incrementBy, setIncrementBy] = useState(1);
-
+const Navbar = ({ notifications }) => {
   return (
     <>
-      <InputIncrementBy
-        incrementBy={incrementBy}
-        onChangeIncrementBy={setIncrementBy}
-      />
-      <Counter incrementBy={incrementBy} />
-    </>
-  );
-}
-
-const InputIncrementBy = ({ incrementBy, onChangeIncrementBy }) => {
-  const handleIncrementByChange = ({ target: { value } }) => {
-    onChangeIncrementBy(value);
-  };
-
-  return (
-    <>
-      <label htmlFor='increment'>Increment By </label>
-      <input
-        id='increment'
-        type='number'
-        onChange={handleIncrementByChange}
-        value={incrementBy}
-      />
+      <h2>Welcome user</h2>
+      {notifications && <p>You've got {notifications.length} notifications</p>}
     </>
   );
 };
 
-const Counter = ({ incrementBy }) => {
-  const [times, setTimes] = useState(0);
+const notifications = [
+  { id: 1, text: 'Welcome to our supermarket' },
+  { id: 2, text: 'Your order has shipped' },
+  { id: 3, text: 'Your order has shipped' },
+];
 
-  const handleTimesClick = () => {
-    setTimes(
-      times + (incrementBy === '' ? 0 : Number.parseInt(incrementBy, 10))
-    );
-  };
-
-  return (
-    <>
-      <h2>{times} times</h2>
-      <button onClick={handleTimesClick}>Add {incrementBy}</button>
-    </>
-  );
-};
-
-root.render(<App />);
+root.render(
+  <>
+    <Navbar notifications={[]} />
+    <Navbar notifications={notifications} />
+  </>
+);
