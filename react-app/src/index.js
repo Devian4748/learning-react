@@ -1,61 +1,56 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { createRoot } from 'react-dom/client';
 
 const root = createRoot(document.querySelector('#root'));
 
-// Shopping Cart
+// Countdown with lives
 //
-// function ShoppingCart(props) {
-//   return <div>{props.count} items in your cart</div>;
-// }
-// root.render(<ShoppingCart count='5' />);
+// function Countdown() {
+//   const [count, setCount] = useState(5);
+//   const [live, setLive] = useState(3);
 
-// More props
-//
-// function Navbar(props) {
+//   const handleDecrementClick = () => {
+//     if (count > 0) {
+//       setCount(count - 1);
+//     } else {
+//       setCount(5);
+//       setLive(live - 1);
+//     }
+//   };
+
 //   return (
 //     <>
-//       <div>Welcome {`${props.user.first_name} ${props.user.last_name}`}</div>
-//       <p>You've got {props.notifications.length} notifications</p>
+//       <h2>Attempts remaining: {count}</h2>
+//       <button onClick={handleDecrementClick}>Count down</button>
+//       <h3>Lives remaining: {live}</h3>
 //     </>
 //   );
 // }
 
-// const notificatinos = [
-//   { id: 1, text: 'Order delivered' },
-//   { id: 2, text: 'Order received' },
-// ];
+// root.render(<Countdown />);
 
-// const user = {
-//   first_name: 'Sam',
-//   last_name: 'Wolf',
-// };
-// root.render(<Navbar notifications={notificatinos} user={user} />);
-
-// Button Ⅰ
+// Conditional counter
 //
-// function Button(props) {
-//   return <button className={`btm-${props.size ?? 'medium'}`}></button>;
+// function Countdown({ enabled }) {
+//   const [count, setCount] = useState(5);
+
+//   const handleDecrementClick = () => {
+//     if (enabled) {
+//       setCount(count - 1);
+//     }
+//   };
+
+//   return (
+//     <>
+//       <h2>Attempts remaining: {count}</h2>
+//       <button onClick={handleDecrementClick}>Count down</button>
+//     </>
+//   );
 // }
 
 // root.render(
 //   <>
-//     <Button size='small' />
-//     <Button size='large' />
-//     <Button />
+//     <Countdown enabled={true} />
+//     <Countdown enabled={false} />
 //   </>
 // );
-
-// Button Ⅱ
-//
-// function Button(props) {
-//   return <button>{props.children}</button>;
-// }
-// root.render(<Button>Login</Button>);
-
-// Destructuring props
-//
-// function Button({ className, children }) {
-//   return <button className={className}>{children}</button>;
-// }
-// root.render(<Button className='primary'>Login</Button>);
