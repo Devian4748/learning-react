@@ -1,61 +1,87 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { createRoot } from 'react-dom/client';
+import './index.css';
 
 const root = createRoot(document.querySelector('#root'));
 
-// Shopping Cart
+// Dark mode toggle
 //
-// function ShoppingCart(props) {
-//   return <div>{props.count} items in your cart</div>;
-// }
-// root.render(<ShoppingCart count='5' />);
+// function App() {
+//   const [settings, setSettings] = useState({
+//     title: 'Content here',
+//     dark_theme: true,
+//   });
 
-// More props
-//
-// function Navbar(props) {
+//   const handleToggleClick = () => {
+//     setSettings({ ...settings, dark_theme: !settings.dark_theme });
+//   };
+
+//   const className = settings.dark_theme ? 'dark' : 'light';
+
 //   return (
-//     <>
-//       <div>Welcome {`${props.user.first_name} ${props.user.last_name}`}</div>
-//       <p>You've got {props.notifications.length} notifications</p>
-//     </>
+//     <div className={className}>
+//       <h1>{settings.title}</h1>
+//       <button onClick={handleToggleClick}>Toggle theme</button>
+//     </div>
 //   );
 // }
 
-// const notificatinos = [
-//   { id: 1, text: 'Order delivered' },
-//   { id: 2, text: 'Order received' },
-// ];
+// root.render(<App />);
 
-// const user = {
-//   first_name: 'Sam',
-//   last_name: 'Wolf',
-// };
-// root.render(<Navbar notifications={notificatinos} user={user} />);
-
-// Button Ⅰ
+// Person age
 //
-// function Button(props) {
-//   return <button className={`btm-${props.size ?? 'medium'}`}></button>;
+// function Person() {
+//   const [user, setUser] = useState({
+//     id: 1,
+//     first_name: 'Alex',
+//     age: 20,
+//   });
+
+//   const handleIncrementClick = () => {
+//     setUser({ ...user, age: user.age + 1 });
+//   };
+
+//   return (
+//     <div>
+//       <p>
+//         {user.first_name} is {user.age} years old.
+//       </p>
+//       <button onClick={handleIncrementClick}>Increment age</button>
+//     </div>
+//   );
 // }
+// root.render(<Person />);
 
-// root.render(
-//   <>
-//     <Button size='small' />
-//     <Button size='large' />
-//     <Button />
-//   </>
-// );
-
-// Button Ⅱ
+// Order Insurance
 //
-// function Button(props) {
-//   return <button>{props.children}</button>;
-// }
-// root.render(<Button>Login</Button>);
+function OrderInsurance() {
+  const [order, setOrder] = useState({
+    id: 1,
+    items: [1, 4, 10],
+  });
 
-// Destructuring props
-//
-// function Button({ className, children }) {
-//   return <button className={className}>{children}</button>;
-// }
-// root.render(<Button className='primary'>Login</Button>);
+  const handleAddClick = () => {
+    setOrder({ ...order, insurance: 'basic' });
+  };
+
+  const handleRemoveClick = () => {
+    const { insurance, ...rest } = order;
+    setOrder(rest);
+  };
+
+  const isExistInsurance = order.insurance !== undefined;
+
+  return (
+    <div>
+      <h1>Your order</h1>
+      {order.insurance ? <p>Order is insured</p> : <p>Order is not insured</p>}
+      <button disabled={isExistInsurance} onClick={handleAddClick}>
+        Add insurance
+      </button>
+      <button disabled={!isExistInsurance} onClick={handleRemoveClick}>
+        Remove insurance
+      </button>
+    </div>
+  );
+}
+root.render(<OrderInsurance />);
