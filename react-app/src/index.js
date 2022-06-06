@@ -1,61 +1,170 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { createRoot } from 'react-dom/client';
 
 const root = createRoot(document.querySelector('#root'));
 
-// Shopping Cart
+// User age
 //
-// function ShoppingCart(props) {
-//   return <div>{props.count} items in your cart</div>;
-// }
-// root.render(<ShoppingCart count='5' />);
+// const User = props => {
+//   return (
+//     <form>
+//       <input type='number' defaultValue={props.age} name='age' />
+//     </form>
+//   );
+// };
 
-// More props
+// root.render(<User age={23} />);
+
+// Log the name
 //
-// function Navbar(props) {
+// function Checkout() {
+//   const handleNameChange = ({ target: { value } }) => {
+//     console.log(value);
+//   };
+//   return (
+//     <form>
+//       <input name='name' onChange={handleNameChange} />
+//     </form>
+//   );
+// }
+
+// root.render(<Checkout />);
+
+// Controlled Input 1
+//
+// function App() {
+//   const [name, setName] = useState('');
+
+//   const handleNameChange = ({ target: { value } }) => {
+//     setName(value);
+//   };
+
 //   return (
 //     <>
-//       <div>Welcome {`${props.user.first_name} ${props.user.last_name}`}</div>
-//       <p>You've got {props.notifications.length} notifications</p>
+//       <input type='text' name='name' onChange={handleNameChange} value={name} />
+//       <p>Hello {name}</p>
 //     </>
 //   );
 // }
 
-// const notificatinos = [
-//   { id: 1, text: 'Order delivered' },
-//   { id: 2, text: 'Order received' },
-// ];
+// root.render(<App />);
 
-// const user = {
-//   first_name: 'Sam',
-//   last_name: 'Wolf',
+// Controlled Input 2
+//
+// const App = () => {
+//   const [quantity, setQuantity] = useState(0);
+//   const handleQuantityChange = ({ target: { value } }) => {
+//     setQuantity(value);
+//   };
+//   return (
+//     <>
+//       <input
+//         type='number'
+//         name='quantity'
+//         value={quantity}
+//         onChange={handleQuantityChange}
+//       />
+//       <p>Ordering {quantity} items</p>
+//     </>
+//   );
 // };
-// root.render(<Navbar notifications={notificatinos} user={user} />);
+// root.render(<App />);
 
-// Button Ⅰ
+// Registeration form
 //
-// function Button(props) {
-//   return <button className={`btm-${props.size ?? 'medium'}`}></button>;
+// function RegisterForm() {
+//   const [detail, setDetail] = useState({
+//     name: 'NAME',
+//     type: 'TYPE',
+//     motivation: 'MOTIVATION',
+//   });
+
+//   const handleNameChange = ({ target: { value } }) => {
+//     setDetail({ ...detail, name: value });
+//   };
+//   const handleTypeChange = ({ target: { value } }) => {
+//     setDetail({ ...detail, type: value });
+//   };
+//   const handleMotivationChange = ({ target: { value } }) => {
+//     setDetail({ ...detail, motivation: value });
+//   };
+
+//   return (
+//     <>
+//       <form>
+//         <input
+//           type='text'
+//           name='name'
+//           placeholder='Enter your name'
+//           value={detail.name}
+//           onChange={handleNameChange}
+//         />
+//         <select name='type' value={detail.type} onChange={handleTypeChange}>
+//           <option>Choose a type</option>
+//           <option>client</option>
+//           <option>merchant</option>
+//         </select>
+//         <textarea
+//           name='motivation'
+//           placeholder='Your motivation to join'
+//           value={detail.motivation}
+//           onChange={handleMotivationChange}
+//         ></textarea>
+//         <input type='submit' value='Register' />
+//       </form>
+//       <p>
+//         Your name is {detail.name}. You would like to register as {detail.type}{' '}
+//         because {detail.motivation}.
+//       </p>
+//     </>
+//   );
 // }
+// root.render(<RegisterForm />);
 
-// root.render(
-//   <>
-//     <Button size='small' />
-//     <Button size='large' />
-//     <Button />
-//   </>
-// );
-
-// Button Ⅱ
+// Reset on submit
 //
-// function Button(props) {
-//   return <button>{props.children}</button>;
-// }
-// root.render(<Button>Login</Button>);
+// function RegisterForm() {
+//   const [detail, setDetail] = useState({ name: '', type: '', motivation: '' });
 
-// Destructuring props
-//
-// function Button({ className, children }) {
-//   return <button className={className}>{children}</button>;
+//   const handleFormSubmit = e => {
+//     e.preventDefault();
+
+//     setDetail({ name: '', type: '', motivation: '' });
+//   };
+
+//   return (
+//     <>
+//       <form onSubmit={handleFormSubmit}>
+//         <input
+//           type='text'
+//           name='name'
+//           value={detail.name}
+//           onChange={e => setDetail({ ...detail, name: e.target.value })}
+//           placeholder='Enter your name'
+//         />
+//         <select
+//           name='type'
+//           value={detail.type}
+//           onChange={e => setDetail({ ...detail, type: e.target.value })}
+//         >
+//           <option>Choose a type</option>
+//           <option>client</option>
+//           <option>merchant</option>
+//         </select>
+//         <textarea
+//           name='motivation'
+//           value={detail.motivation}
+//           onChange={e => setDetail({ ...detail, motivation: e.target.value })}
+//           placeholder='Your motivation to join'
+//         />
+//         <input type='submit' value='Register' />
+//       </form>
+//       <p>
+//         Your name is {detail.name}. You would like to register as {detail.type}{' '}
+//         because
+//         {detail.motivation}.
+//       </p>
+//     </>
+//   );
 // }
-// root.render(<Button className='primary'>Login</Button>);
+// root.render(<RegisterForm />);
