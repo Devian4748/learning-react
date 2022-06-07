@@ -44,6 +44,18 @@
   padding: 0.5rem;
   font-size: var(--small);
 }
+
+.btn-middle {
+  min-width: 10rem;
+}
+
+.btn-delete {
+  margin-top: 5px;
+  font-size: var(--small);
+  text-align: center;
+  padding: 0.2rem;
+}
+
 .login-btn {
   margin: 20px;
 }

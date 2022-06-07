@@ -11,12 +11,14 @@ html {
 body {
   line-height: 1;
   color: #333;
-  margin: 3rem;
+  margin: 1.5rem;
+  font-size: var(--normal);
 }
 
 :root {
   --primary: #4caf50;
   --secondary: #ffc107;
+  --drak-gray: #80818279;
   --light-gray: #dadce0;
   --dark: #222;
 
@@ -28,4 +30,16 @@ body {
 h2 {
   font-size: var(--big);
   margin-bottom: 5rem;
+}
+
+label {
+  display: inline-block;
+  min-width: 10rem;
+  margin: 1rem 0;
+}
+
+form {
+  background-color: var(--drak-gray);
+  padding: 2rem;
+  border-radius: 3px;
 }

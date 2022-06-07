@@ -69,3 +69,32 @@ There are some limitations to this kind of UI Kit, for example:
 - When the user clicks on + or - it should increment a counter which keeps track of how many items the user wants to order.
 - Do not allow the counter to go below 0 (you cannot order -1 items).
 - When the counter is 0, disable the - button and hide the counter. So the counter will only show up when it's at 1 or above, and disappear if it's 0.
+
+## Online Store Admin
+
+- The goal of this project is to add items to your online store.
+
+### StoreFront
+
+- In the previous project, we hardcoded 2 products. In this one, we'll use state to keep track of them and allow the admin to add new ones using the form.
+
+- Make the products a state variable
+- Create controlled components for the name and the description textboxes in the form.
+- Make the form accessible
+- When the user submits the form, the new Product should be added to the list of products. A product should consist of: {id, name, description}. You can use the the length of the products as the id. (Note: this is only temporary until we learn about fetch and start working with an API)
+- When the user submits the form, reset it (by emptying the fields). Note that you cannot (yet) change the focus on submit.
+- For each product in your products state, render a <Product /> by passing the relevant details prop, as well as the Delete button.
+- Remove (or hide) the <p>Add your first product</p> when there are products.
+- Make it possible to delete a product by clicking on the Delete button.
+
+### Optional
+
+- Add a validation message in <div className="validation-message"></div> when the name or the description are empty.
+- Do not allow adding a product if one of the fields are missing.
+
+### Limitations of this project
+
+- You may have noticed 2 main limitations of this project:
+
+- When using the keyboard and after submitting the form, there's no proper way to programmatically move the focus (the blinking cursor) from the description field back to the name field. We will need refs for that.
+- The StoreFront.js file became quite big. It would be ideal if we can refactor its logic into 2 main components:

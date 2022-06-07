@@ -17,7 +17,6 @@ const Product = ({ details }) => {
 
   return (
     <div className={classes.product}>
-      <img src={details.image} alt={details.name} />
       <div className={classes['product-info']}>
         <h2>{details.name}</h2>
         <p>{details.description}</p>
