@@ -1,18 +1,24 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { createRoot } from 'react-dom/client';
 
 const root = createRoot(document.querySelector('#root'));
 
+<<<<<<< HEAD
 // Accessible Form 1
+=======
+// Shopping Cart
 //
-// function App() {
-//   const [name, setName] = useState('');
+// function ShoppingCart(props) {
+//   return <div>{props.count} items in your cart</div>;
+// }
+// root.render(<ShoppingCart count='5' />);
 
-//   const handleNameChange = ({ target: { value } }) => {
-//     setName(value);
-//   };
-
+// More props
+>>>>>>> parent of 6a0d417 (Add Basic Forms Sample)
+//
+// function Navbar(props) {
 //   return (
+<<<<<<< HEAD
 //     <form>
 //       <label htmlFor='name'>Name</label>
 //       <input
@@ -79,3 +85,50 @@ function RegisterForm() {
   );
 }
 root.render(<RegisterForm />);
+=======
+//     <>
+//       <div>Welcome {`${props.user.first_name} ${props.user.last_name}`}</div>
+//       <p>You've got {props.notifications.length} notifications</p>
+//     </>
+//   );
+// }
+
+// const notificatinos = [
+//   { id: 1, text: 'Order delivered' },
+//   { id: 2, text: 'Order received' },
+// ];
+
+// const user = {
+//   first_name: 'Sam',
+//   last_name: 'Wolf',
+// };
+// root.render(<Navbar notifications={notificatinos} user={user} />);
+
+// Button Ⅰ
+//
+// function Button(props) {
+//   return <button className={`btm-${props.size ?? 'medium'}`}></button>;
+// }
+
+// root.render(
+//   <>
+//     <Button size='small' />
+//     <Button size='large' />
+//     <Button />
+//   </>
+// );
+
+// Button Ⅱ
+//
+// function Button(props) {
+//   return <button>{props.children}</button>;
+// }
+// root.render(<Button>Login</Button>);
+
+// Destructuring props
+//
+// function Button({ className, children }) {
+//   return <button className={className}>{children}</button>;
+// }
+// root.render(<Button className='primary'>Login</Button>);
+>>>>>>> parent of 6a0d417 (Add Basic Forms Sample)
