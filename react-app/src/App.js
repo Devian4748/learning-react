@@ -1,35 +1,19 @@
 import { useState } from 'react';
-import StoreFront from './components/StoreFront/StoreFront';
-import Button from './components/ui/Button';
-
+// Functional state update
+//
 const App = () => {
-  const [loggedin, setLoggedin] = useState(false);
-
-  const handleLoginClick = () => {
-    setLoggedin(!loggedin);
+  const [counter, setCounter] = useState(0);
+  const handleIncrementClick = () => {
+    setCounter(prev => prev + 1);
   };
-
-  if (!loggedin) {
-    return (
-      <>
-        <h2>Please Login</h2>
-        <Button
-          type='button'
-          className='btn-primary'
-          onClick={handleLoginClick}
-        >
-          Login
-        </Button>
-      </>
-    );
-  }
-
+  const handleDecrementClick = () => {
+    setCounter(prev => prev - 1);
+  };
   return (
     <>
-      <StoreFront />
-      <Button className='btn-outline' onClick={handleLoginClick}>
-        Logout
-      </Button>
+      <h2>{counter}</h2>
+      <button onClick={handleIncrementClick}>+</button>
+      <button onClick={handleDecrementClick}>-</button>
     </>
   );
 };

@@ -1,9 +1,0 @@
-.ui-textfield {
-  width: 100%;
-  padding: 1.2rem;
-  border-radius: 2px;
-  border: 1px solid var(--light-gray);
-  font-size: var(--normal);
-  transition: opacity 200ms ease-out;
-  margin: 5px 0 15px 0;
-}
