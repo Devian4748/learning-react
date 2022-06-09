@@ -98,3 +98,8 @@ There are some limitations to this kind of UI Kit, for example:
 
 - When using the keyboard and after submitting the form, there's no proper way to programmatically move the focus (the blinking cursor) from the description field back to the name field. We will need refs for that.
 - The StoreFront.js file became quite big. It would be ideal if we can refactor its logic into 2 main components:
+
+## Refactor Online Store Admin
+
+- Start by refactoring the <ul className="store-front">...</ul> into the <ProductsList /> component. Make sure it works before proceeding.
+- Refactor the form into its own <AddProductForm /> component.
