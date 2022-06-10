@@ -46,31 +46,62 @@ import { useEffect, useState } from 'react';
 //   );
 // };
 
-// Products page title
+// Still there?
+//
+// function App() {
+//   const [counter, setCounter] = useState(0);
+
+//   useEffect(() => {
+//     const timeId = setTimeout(() => {
+//       document.title = 'Still There?';
+//     }, 1000);
+
+//     return () => {
+//       clearTimeout(timeId);
+//     };
+//   });
+
+//   return (
+//     <>
+//       <h2>{counter}</h2>
+//       <button onClick={() => setCounter(prevCounter => prevCounter + 1)}>
+//         Add
+//       </button>
+//     </>
+//   );
+// }
+
+// Scroll leak
 //
 function App() {
-  const [products, setProducts] = useState([]);
+  const [random, setRandom] = useState(0);
 
-  const handleInsertionClick = () => {
-    setProducts([...products, { id: products.length }]);
-  };
+  const dummyItems = Array.from({ length: 50 });
 
   useEffect(() => {
-    const productCnt = products.length;
-    if (productCnt === 0) {
-      document.title = 'Add your first product';
-    } else if (productCnt === 1) {
-      document.title = 'You have 1 product';
-    } else {
-      document.title = `You have ${productCnt} product`;
-    }
+    const handleScrollEvent = e => {
+      console.log(window.scrollY);
+    };
+    window.addEventListener('scroll', handleScrollEvent);
+
+    return () => {
+      window.removeEventListener('scroll', handleScrollEvent);
+    };
   });
 
   return (
     <>
-      <h2>{products.length} times clicked</h2>
-      <button onClick={handleInsertionClick}>Add a product</button>
+      <button onClick={() => setRandom(Math.random())}>
+        Re-render component
+      </button>
+      <h2>List of products</h2>
+      <ul style={{ lineHeight: '40px' }}>
+        {dummyItems.map((item, index) => (
+          <li key={index}>Lorem ipsum dolor sit amet.</li>
+        ))}
+      </ul>
     </>
   );
 }
+
 export default App;
