@@ -1,61 +1,59 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 
 const root = createRoot(document.querySelector('#root'));
 
-// Shopping Cart
+// Clock Component
 //
-// function ShoppingCart(props) {
-//   return <div>{props.count} items in your cart</div>;
-// }
-// root.render(<ShoppingCart count='5' />);
+// const App = () => {
+//   const [date, setDate] = useState(new Date());
 
-// More props
-//
-// function Navbar(props) {
-//   return (
-//     <>
-//       <div>Welcome {`${props.user.first_name} ${props.user.last_name}`}</div>
-//       <p>You've got {props.notifications.length} notifications</p>
-//     </>
-//   );
-// }
+//   useEffect(() => {
+//     const intervalId = setInterval(() => {
+//       setDate(new Date());
+//     }, 1000);
 
-// const notificatinos = [
-//   { id: 1, text: 'Order delivered' },
-//   { id: 2, text: 'Order received' },
-// ];
+//     return () => {
+//       clearInterval(intervalId);
+//     };
+//   }, []);
 
-// const user = {
-//   first_name: 'Sam',
-//   last_name: 'Wolf',
+//   return <h2>{date.toLocaleTimeString()}</h2>;
 // };
-// root.render(<Navbar notifications={notificatinos} user={user} />);
 
-// Button Ⅰ
+// Stopwatch
 //
-// function Button(props) {
-//   return <button className={`btm-${props.size ?? 'medium'}`}></button>;
-// }
+function App() {
+  const [counter, setCounter] = useState(0);
+  const [isRunning, setIsRunning] = useState(true);
 
-// root.render(
-//   <>
-//     <Button size='small' />
-//     <Button size='large' />
-//     <Button />
-//   </>
-// );
+  useEffect(() => {
+    if (isRunning) {
+      const timerId = setTimeout(() => {
+        setCounter(prev => prev + 1);
+      }, 1000);
 
-// Button Ⅱ
-//
-// function Button(props) {
-//   return <button>{props.children}</button>;
-// }
-// root.render(<Button>Login</Button>);
+      return () => {
+        clearTimeout(timerId);
+      };
+    }
+  }, [counter, isRunning]);
 
-// Destructuring props
-//
-// function Button({ className, children }) {
-//   return <button className={className}>{children}</button>;
-// }
-// root.render(<Button className='primary'>Login</Button>);
+  const handleCounterToggle = () => {
+    setIsRunning(prev => !prev);
+  };
+
+  const handleCounterReset = () => {
+    setCounter(0);
+    setIsRunning(false);
+  };
+
+  return (
+    <>
+      <h2>{counter}</h2>
+      <button onClick={handleCounterToggle}>Start / Pause</button>
+      <button onClick={handleCounterReset}>Stop</button>
+    </>
+  );
+}
+root.render(<App />);
