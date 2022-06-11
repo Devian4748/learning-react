@@ -1,73 +1,34 @@
 import React, { useEffect, useState } from 'react';
 import { createRoot } from 'react-dom/client';
+import Button from './Button';
+import Hero from './Hero';
+import Link from './Link';
 
 const root = createRoot(document.querySelector('#root'));
 
-<<<<<<< HEAD
-// Clock Component
+// Hero Component
 //
-// const App = () => {
-//   const [date, setDate] = useState(new Date());
-
-//   useEffect(() => {
-//     const intervalId = setInterval(() => {
-//       setDate(new Date());
-//     }, 1000);
-
-//     return () => {
-//       clearInterval(intervalId);
-//     };
-//   }, []);
-
-//   return <h2>{date.toLocaleTimeString()}</h2>;
-// };
-
-// Stopwatch
-//
-function App() {
-  const [counter, setCounter] = useState(0);
-  const [isRunning, setIsRunning] = useState(true);
-
-  useEffect(() => {
-    if (isRunning) {
-      const timerId = setTimeout(() => {
-        setCounter(prev => prev + 1);
-      }, 1000);
-
-      return () => {
-        clearTimeout(timerId);
-      };
-    }
-  }, [counter, isRunning]);
-
-  const handleCounterToggle = () => {
-    setIsRunning(prev => !prev);
-  };
-
-  const handleCounterReset = () => {
-    setCounter(0);
-    setIsRunning(false);
-  };
-
-  return (
-    <>
-      <h2>{counter}</h2>
-      <button onClick={handleCounterToggle}>Start / Pause</button>
-      <button onClick={handleCounterReset}>Stop</button>
-=======
-// Payment methods dropdown
-//
-// function getPaymentMethods() {
+// const Hero = () => {
 //   return (
-//     <select className='payment-methods'>
-//       <option className='payment-method'>Card</option>
-//       <option className='payment-method'>Paypal</option>
-//       <option className='payment-method'>Cash on delivery</option>
-//     </select>
+//     <>
+//       <h1>Welcome to our supermarket</h1>
+//       <p>Start shopping</p>
+//     </>
+//   );
+// };
+// root.render(<Hero />);
+
+// Navbar Component
+//
+// function Navbar() {
+//   return (
+//     <>
+//       <h3>Supermarket</h3>
+//       <p>Start shopping</p>
+//     </>
 //   );
 // }
-
-// root.render(getPaymentMethods());
+// root.render(React.createElement(Navbar, null));
 
 // Dropdown menu
 //
@@ -106,8 +67,24 @@ function getFooter() {
         <li>About</li>
       </ul>
       <p>All rights reserved &copy;</p>
->>>>>>> parent of 83447d2 (Add Component Sample)
     </>
   );
 }
 root.render(getFooter());
+
+// One Component per file
+//
+// root.render(<Hero />);
+
+// Mutiple Components
+//
+function App() {
+  return (
+    <>
+      <Button />
+      <Button />
+      <Link />
+    </>
+  );
+}
+root.render(<App />);
